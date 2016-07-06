@@ -1,9 +1,9 @@
-﻿$( document ).ready(function() {
+ï»¿$( document ).ready(function() {
 		var ope;
 		$.getJSON("json/operario.JSON",function(response){
 			ope = response;
 		});	        
-		init();
+		init(ope);
     });
 	
 // Objetos de datos
@@ -11,12 +11,12 @@
 
 	
 	
-function init(){
-	//Inicialización
+function init(ope){
+	//InicializaciÃ³n
 	$("#container_sucursales").hide();
 	$("#container_datos").hide();
 
-	//Comportamiento del menú principal
+	//Comportamiento del menÃº principal
 	$(".menu li:nth-child(2) a").click(function(){
 		$(".breadcrumb li h2").text("Reportes");
 		$(".menu li:nth-child(2)").siblings("li").removeClass("active");
@@ -36,7 +36,7 @@ function init(){
 	});
 
 	$(".menu li:nth-child(3) a").click(function(){
-		$(".breadcrumb li h2").text("Información de registro");
+		$(".breadcrumb li h2").text("InformaciÃ³n de registro");
 		$(".menu li:nth-child(3)").siblings("li").removeClass("active");
 		$(".menu li:nth-child(3)").addClass("active");
 		$("#container_sucursales").hide();
@@ -44,7 +44,7 @@ function init(){
 		$("#container_datos").show();	
 	});	
 	
-	//Comportamiento de los exámenes
+	//Comportamiento de los exÃ¡menes
 	ope.lista.forEach(function(item){
 		$("#examenes_contenido").append("<tr>");
 		$("#examenes_contenido tr:last-child").append("<td>"+item.paciente+"</td>");
@@ -57,7 +57,7 @@ function init(){
 			'</td>');	
 	});	
 	
-	//Compa�ero
+	//Compañero
 		var parseTime = d3.timeParse("%M");
 
 		var svg = d3.select("svg");
